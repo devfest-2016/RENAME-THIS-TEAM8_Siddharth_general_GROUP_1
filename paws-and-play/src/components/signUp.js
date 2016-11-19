@@ -9,6 +9,9 @@ export default function SignUp(){
             <input className="form-control input-md" type="text" name="username" value="" placeholder="User Name" />
           </div>
           <div className="form-group">
+            <input className="form-control input-md" type="password" name="username" value="" placeholder="Password" />
+          </div>
+          <div className="form-group">
             <input className="form-control input-md" type="text" name="dogname" value="" placeholder="Dog Name" />
           </div>
           <div className="form-group">

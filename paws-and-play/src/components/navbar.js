@@ -14,13 +14,13 @@ class NavBar extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a href="#" className="navbar-brand">Paws and Play</a>
+            <a href="/" className="navbar-brand">Paws & Play</a>
           </div>
             <div className="collapse navbar-collapse navHeaderCollapse">
               <ul className="nav navbar-nav navbar-right">
                 <li> <a href="/signup">SignUp</a></li>
-                <li> <a href="#">About</a></li>
-                <li> <a href="#">Contact</a></li>
+                <li> <a href="/signin">Sign In</a></li>
+                <li> <a href="#">Sign Out</a></li>
               </ul>
             </div>
           </div>
