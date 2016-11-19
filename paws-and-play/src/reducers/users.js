@@ -1,4 +1,4 @@
-export default function users_reducer(state=[], action){
+export default function usersReducer(state=[], action){
 
     switch(action.type){
         case 'FETCH_USERS':
