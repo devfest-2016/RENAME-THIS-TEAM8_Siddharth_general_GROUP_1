@@ -1,10 +1,13 @@
 import React from 'react'
 import {Route, IndexRoute} from 'react-router'
-import App from './components/App'
+import App from './App'
 
 import Login from './components/login'
 import Signup from './components/signUp'
 import HomePage from './components/homePage'
+import Welcome from './components/welcome'
+
+
 
 export default(
   <Route path='/' component={App}>
