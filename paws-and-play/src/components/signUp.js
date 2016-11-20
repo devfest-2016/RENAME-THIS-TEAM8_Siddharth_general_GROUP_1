@@ -1,55 +1,126 @@
 import React from 'react';
+import * as actions from '../actions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import firebase from '../components/firebase_config'
 
-export default function SignUp(){
-	return(
-		<div>
-      <form className="" action="index.html" method="post" >
-        <fieldset>
-				<h2>User Info</h2>
-					<div className="form-group">
-            <input className="form-control input-md" type="text" name="name" value="" placeholder="Email" />
-          </div>
-          <div className="form-group">
-            <input className="form-control input-md" type="password" name="username" value="" placeholder="Password" />
-          </div>
-					<h2>Dog Info</h2>
-          <div className="form-group">
-            <input className="form-control input-md" type="text" name="dogname" value="" placeholder="Dog Name" />
-          </div>
-          <div className="form-group">
-            <input className="form-control input-md" type="text" name="name" value="" placeholder="Breed" />
-          </div>
-          <div className="form-group">
-            <input className="form-control input-md" type="text" name="name" value="" placeholder="Age" />
-          </div>
-					<div className="form-group">
-						<label for="male">Temperment:</label>
-						<select>
-						  <option value="sweet">Nice</option>
-						  <option value="aggressive">Fuuny</option>
-						  <option value="playful">Aggressive</option>
-						  <option value="dumb">Dumb</option>
-						</select>
-					</div>
-					<div className="form-group">
-						<label for="male">Size:</label>
-						<select>
-						  <option value="xs">Extra Small</option>
-						  <option value="s">Small</option>
-						  <option value="m">Medium</option>
-						  <option value="lg">Large</option>
-						  <option value="xlg">Extra Large</option>
-						</select>
-					</div>
-					<div className="form-group">
-						<textarea className="form-control" placeholder="Description"></textarea>
-					</div>
-          <div className="form-group">
-            <button className="btn btn-lg btn-default dark-button">Sign Up</button>
-          </div>
-        </fieldset>
-      </form>
+const db = firebase.database().ref('users')
 
-		</div>
-	)
+
+class SignUp extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.onSubmit = this.onSubmit.bind(this)
+
+		db.on("value", function(snapshot){
+			debugger
+		})
+	}
+
+	onSubmit(e) {
+		e.preventDefault()
+		const newUserFromForm = {
+			name: this.refs.name.value,
+			  email: this.refs.email.value,
+			  location: this.refs.location.value,
+			  password: this.refs.password.value,
+			  dog: {
+			    name: this.refs.dogname.value,
+			    breed: this.refs.breed.value,
+			    age: this.refs.age.value,
+			    // picture: this.refs.email.value,
+			    description: this.refs.description.value,
+			    temperament: this.refs.temperament.value,
+			    size: this.refs.size.value
+			  },
+			  routine: {
+			    days: {
+			      "Monday": {
+			        time: "Morning",
+			        location: "Prospect Park"
+			      },
+			      "Tuesday": {
+			        time: "Late Night",
+			        location: "Creepy Dark Alley"
+			      }
+			    }
+			  }
+			}
+			db.push(newUserFromForm)
+
+		}
+
+
+	render() {
+		return(
+			<div>
+	      <form onSubmit={this.onSubmit} className="" action="index.html" method="post" >
+	        <fieldset>
+					<h2>User Info</h2>
+						<div className="form-group">
+	            <input className="form-control input-md" type="text" ref="name" placeholder="Your Name" />
+	          </div>
+						<div className="form-group">
+	            <input className="form-control input-md" type="text" ref="email" placeholder="Email" />
+	          </div>
+						<div className="form-group">
+	            <input className="form-control input-md" type="text" ref="location" placeholder="Zip Code" />
+	          </div>
+	          <div className="form-group">
+	            <input className="form-control input-md" type="password" ref="password" placeholder="Password" />
+	          </div>
+						<h2>Dog Info</h2>
+	          <div className="form-group">
+	            <input className="form-control input-md" type="text" ref="dogname" placeholder="Dog Name" />
+	          </div>
+	          <div className="form-group">
+	            <input className="form-control input-md" type="text" ref="breed" placeholder="Breed" />
+	          </div>
+	          <div className="form-group">
+	            <input className="form-control input-md" type="text" ref="age" placeholder="Age" />
+	          </div>
+						<div className="form-group">
+							<label for="male">Temperment:</label>
+							<select ref="temperament">
+							  <option value="1">1</option>
+							  <option value="2">2</option>
+							  <option value="3">3</option>
+							  <option value="4">4</option>
+							  <option value="5">5</option>
+							  <option value="6">6</option>
+							  <option value="7">7</option>
+							  <option value="8">8</option>
+							  <option value="9">9</option>
+							  <option value="10">10</option>
+							</select>
+						</div>
+						<div className="form-group">
+							<label>Size:</label>
+							<select ref="size">
+							  <option value="xs">Extra Small</option>
+							  <option value="s">Small</option>
+							  <option value="m">Medium</option>
+							  <option value="lg">Large</option>
+							  <option value="xlg">Extra Large</option>
+							</select>
+						</div>
+						<div className="form-group">
+							<textarea className="form-control" ref="description" placeholder="Description"></textarea>
+						</div>
+	          <div className="form-group">
+	            <button className="btn btn-lg btn-default dark-button">Sign Up</button>
+	          </div>
+	        </fieldset>
+	      </form>
+
+			</div>
+		)}
 }
+
+function mapDispatchToProps(dispatch){
+	return {actions: bindActionCreators(actions, dispatch)}
+}
+
+
+export default connect (null, mapDispatchToProps)(SignUp)

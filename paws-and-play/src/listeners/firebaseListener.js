@@ -1,69 +1,94 @@
-const db = firebase.database().ref('users');
 
 //we need store access
+import firebase from '../components/firebase_config'
 
-const objectsToListenTo = [
-    {
-        dbRef: db
-        add: {
-            insert: item => store.dispatch({type: 'ADD_USER', item}),
-            delete: key => store.dispatch({type: 'DELETE_USER', key}),
-        },
-    },
-    {
-        dbRef: db.child('users/dogs'),
-        add: {
-            insert: item => store.dispatch({type: 'ADD_DOG', item}),
-            remove: key => store.dispatch({type: 'REMOVE_DOG', key}),
-        },
-    }
-];
+const db = firebase.database().ref('users')
 
-class ObjectWatcher {
-    constructor(snapshot, type) {
-        this.type = type;
-        this.key = snapshot.key;
-        this.ref = type.dbRef.child(this.key);
-        this.ref.on('value', this.onChange.bind(this));
-    }
 
-    onChange(snapshot) {
-        if (!snapshot) return; // this fires when the object is removed. But the child_removed event handles the removal
 
-        this.type.actions.upsert({
-            [this.key]: snapshot.val(),
-        });
-    }
+// db.on("child_changed", function(snapshot){
+//   debugger
+// })
 
-    remove() {
-        this.type.actions.remove(this.key);
-        this.ref.off('value', this.onChange);
-    }
-}
 
-class ListWatcher {
-    constructor() {
-        this.cache = {};
-    }
+// class firebaseListener extends React.Component{
+//
+//   constructor(props){
+//     super(props)
+//     usersRef = firebase.database().ref()
+//   }
+//
+//
+//   render() {
+//     return (
+//       <div></div>
+//     );
+//   }
+// }
 
-    watchList(ref, type) {
-        ref.on('child_added', snap => this.onChildAdded(snap, type));
-        ref.on('child_removed', snap => this.onChildRemoved(snap));
-    }
-
-    onChildAdded(snapshot, type) {
-        this.cache[snapshot.key] = new ObjectWatcher(snapshot, type);
-    }
-
-    onChildRemoved(snapshot) {
-        this.cache[snapshot.key].remove();
-        delete this.cache[snapshot.key];
-    }
-}
-
-const listWatcher = new ListWatcher();
-
-objectsToListenTo.forEach(objectToListenTo => {
-    listWatcher.watchList(userRef.child(objectToListenTo.keyPath), objectToListenTo);
-});
-view rawfirebase-listen.js hosted with ❤ by GitHub
+// const objectsToListenTo = [
+//     {
+//         dbRef: db,
+//         actions: {
+//           debugger
+//             insert: item => store.dispatch({type: 'ADD_USER', item}),
+//             // delete: key => store.dispatch({type: 'DELETE_USER', key}),
+//         },
+//     },
+//     {
+//         dbRef: db.child('users/dogs'),
+//         actions: {
+//             insert: item => store.dispatch({type: 'ADD_DOG', item}),
+//             // remove: key => store.dispatch({type: 'REMOVE_DOG', key}),
+//         },
+//     }
+// ];
+//
+// class ObjectWatcher {
+//     constructor(snapshot, type) {
+//         this.type = type;
+//         this.key = snapshot.key;
+//         this.ref = type.dbRef.child(this.key);
+//         this.ref.on('value', this.onChange.bind(this));
+//     }
+//
+//     onChange(snapshot) {
+//         if (!snapshot) return; // this fires when the object is removed. But the child_removed event handles the removal
+//
+//         this.type.actions.upsert({
+//             [this.key]: snapshot.val(),
+//         });
+//     }
+//
+//     remove() {
+//         this.type.actions.remove(this.key);
+//         this.ref.off('value', this.onChange);
+//     }
+// }
+//
+// class ListWatcher {
+//     constructor() {
+//         this.cache = {};
+//     }
+//
+//     watchList(ref, type) {
+//         ref.on('child_added', snap => this.onChildAdded(snap, type));
+//         ref.on('child_removed', snap => this.onChildRemoved(snap));
+//     }
+//
+//     onChildAdded(snapshot, type) {
+//         this.cache[snapshot.key] = new ObjectWatcher(snapshot, type);
+//     }
+//
+//     onChildRemoved(snapshot) {
+//         this.cache[snapshot.key].remove();
+//         delete this.cache[snapshot.key];
+//     }
+// }
+//
+// const listWatcher = new ListWatcher();
+//
+// objectsToListenTo.forEach(objectToListenTo => {
+//     listWatcher.watchList(userRef.child(objectToListenTo.keyPath), objectToListenTo);
+// });
+// view rawfirebase-listen.js hosted with ❤ by GitHub
