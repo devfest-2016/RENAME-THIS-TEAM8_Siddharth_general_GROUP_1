@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index'
 import { bindActionCreators } from 'redux'
-import { withGoogleMap } from "react-google-maps";
 
 class Schedule extends React.Component {
 
@@ -121,7 +120,6 @@ class Schedule extends React.Component {
 	}
 }
 
-
 function mapStateToProps(state){
   debugger
   return {
@@ -134,15 +132,3 @@ function mapDispatchToProps(dispatch){
 }
 const componentCreator = connect(mapStateToProps, mapDispatchToProps)
 export default componentCreator(Schedule)
-
-
-
-
-// <div>
-// 	<label for="male">Walk Time:</label>
-// 	<select>
-// 		this.props.list.map(function(listValue){
-// 			return React.createElement("option",null,listValue.name)
-// 		}
-// 	</select>
-// </div>
