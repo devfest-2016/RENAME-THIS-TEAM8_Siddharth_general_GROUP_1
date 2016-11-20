@@ -15,10 +15,10 @@ class NavBar extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link to="/">
+            <Link to="/homepage">
             <img src="http://i.imgur.com/3lT61Xy.png" id="icon"></img>
             </Link>
-            <Link to="/">
+            <Link to="/homepage">
               <div id="brand" className='navbrand'>Paws & Play</div>
             </Link>
           </div>
