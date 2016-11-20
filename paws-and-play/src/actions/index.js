@@ -1,18 +1,16 @@
-const db = firebase.database().ref('users')
+import firebase from '../components/firebase_config'
 
+const db = firebase.database().ref('users')
 // get all users
 
 //USER ACTIONS
 export function addUser(newUserFromForm) {
-  db.push(newUserFromForm)
+  return {type: 'ADD_USER', payload: newUserFromForm}
 }
 
-export function removeUser(userKey) {
-
-}
-
-
-
+// export function removeUser(userKey) {
+//
+// }
 
 
 //DOG ACTIONS
