@@ -5,7 +5,6 @@ export default function usersReducer(state=[], action){
             return [...state, action.payload];
             return state;
         case 'ADD_USER':
-          debugger;
             // change to true
             return [...state, action.payload];
         default:
