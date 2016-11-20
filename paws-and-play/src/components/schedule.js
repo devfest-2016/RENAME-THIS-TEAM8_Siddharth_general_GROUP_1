@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index'
 import { bindActionCreators } from 'redux'
+import { withGoogleMap } from "react-google-maps";
 
 class Schedule extends React.Component {
 
@@ -11,11 +12,10 @@ class Schedule extends React.Component {
 	}
 
 	render() {
-
 		return(
-		<div className="row">
-			<div className="col-md-6">
-				<form className="" action="index.html" method="post" >
+		<form className="" action="index.html" method="post" >
+			<div className="row">
+				<div className="col-md-6">
 					<fieldset>
 						<h2>Weekdays</h2>
 							<div className="form-group">
@@ -61,15 +61,10 @@ class Schedule extends React.Component {
 									}
 								</select>
 							</div>
-						<div className="form-group">
-							<button className="btn btn-lg btn-default dark-button">Sign Up</button>
-						</div>
 					</fieldset>
-				</form>
-			</div>
+				</div>
 
-			<div className="col-md-6">
-				<form className="" action="index.html" method="post" >
+				<div className="col-md-6">
 					<fieldset>
 						<h2>Weekend</h2>
 							<div className="form-group">
@@ -116,18 +111,14 @@ class Schedule extends React.Component {
 								</select>
 							</div>
 						<div className="form-group">
-							<button className="btn btn-lg btn-default dark-button">Sign Up</button>
+							<button className="btn btn-sm btn-default dark-button">Submit</button>
 						</div>
 					</fieldset>
-				</form>
+				</div>
 			</div>
-		</div>
+		</form>
 		)
-
-
 	}
-
-
 }
 
 

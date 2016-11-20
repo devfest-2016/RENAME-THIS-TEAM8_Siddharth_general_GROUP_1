@@ -19,6 +19,7 @@ class NavBar extends React.Component {
           </div>
             <div className="collapse navbar-collapse navHeaderCollapse">
               <ul className="nav navbar-nav navbar-right">
+                <li><Link id='parks_and_schedule' to="/parks_and_schedule">Parks & Schedule</Link></li>
                 <li><Link id='signup' to="/signup">Sign Up</Link></li>
                 <li><Link id='signin' to="/signin">Sign In</Link></li>
                 <li> <a href="#">Sign Out</a></li>

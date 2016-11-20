@@ -4,7 +4,7 @@ import * as actions from '../actions/index'
 import { bindActionCreators } from 'redux'
 import Schedule from './schedule.js'
 
-class homePage extends React.Component {
+class userParksAndSchedule extends React.Component {
   constructor() {
     super();
     this.find_parks = this.find_parks.bind(this)
@@ -46,4 +46,4 @@ function mapDispatchToProps(dispatch){
   return {actions: bindActionCreators(actions, dispatch)}
 }
 const componentCreator = connect(mapStateToProps, mapDispatchToProps)
-export default componentCreator(homePage)
+export default componentCreator(userParksAndSchedule)
