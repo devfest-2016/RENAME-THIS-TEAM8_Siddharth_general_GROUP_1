@@ -15,7 +15,12 @@ class NavBar extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className='navbrand' to="/">Paws & Play</Link>
+            <Link to="/">
+            <img src="http://i.imgur.com/3lT61Xy.png" id="icon"></img>
+            </Link>
+            <Link to="/">
+              <div id="brand" className='navbrand'>Paws & Play</div>
+            </Link>
           </div>
             <div className="collapse navbar-collapse navHeaderCollapse">
               <ul className="nav navbar-nav navbar-right">

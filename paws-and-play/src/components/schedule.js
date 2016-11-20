@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index'
 import { bindActionCreators } from 'redux'
+import {Link} from 'react-router';
 
 class Schedule extends React.Component {
 
@@ -110,7 +111,9 @@ class Schedule extends React.Component {
 								</select>
 							</div>
 						<div className="form-group">
-							<button className="btn btn-sm btn-default dark-button">Submit</button>
+							<Link to="/homepage">
+							<button className="btn btn-sm btn-default">Submit</button>
+							</Link>
 						</div>
 					</fieldset>
 				</div>

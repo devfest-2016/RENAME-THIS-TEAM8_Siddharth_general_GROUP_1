@@ -1,0 +1,49 @@
+.btn {
+  background-color: #f8f8f8;
+  border-color: #794e4e;
+  color: #794e4e;
+}
+
+.btn:hover{
+  background-color: #cecece;
+  color: #794e4e;
+  border-color: #794e4e;
+}
+
+.btn:active{
+  background-color: #cecece;
+  color: #794e4e;
+}
+
+.navbar-default {
+  background-color: #f0f0f0;
+  border-color: #794e4e;
+
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #794e4e;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  background-color: #cecece;
+  color: #794e4e;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: black
+}
+
+#icon {
+  height: 40px;
+  padding-top: 5px;
+}
+
+#brand {
+  float: right;
+  padding-left: 6px;
+  padding-top: 17px;
+  color: #794e4e;
+  font-size: 20px;
+}

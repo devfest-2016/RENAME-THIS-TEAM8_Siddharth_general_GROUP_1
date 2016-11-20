@@ -111,7 +111,7 @@ class SignUp extends React.Component {
 							<textarea className="form-control" ref="description" placeholder="Description"></textarea>
 						</div>
 	          <div className="form-group">
-	            <button className="btn btn-lg btn-default dark-button">Sign Up</button>
+	            <button className="btn btn-sm btn-default dark-button">Sign Up</button>
 	          </div>
 	        </fieldset>
 	      </form>

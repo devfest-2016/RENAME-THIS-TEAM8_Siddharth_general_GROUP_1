@@ -12,7 +12,7 @@ export default function SignUp(){
             <input className="form-control input-md" type="password" name="password" value="" placeholder="Password" />
           </div>
           <div className="form-group">
-            <button className="btn btn-lg btn-default dark-button">Sign In</button>
+            <button className="btn btn-sm btn-default dark-button">Sign In</button>
           </div>
         </fieldset>
       </form>

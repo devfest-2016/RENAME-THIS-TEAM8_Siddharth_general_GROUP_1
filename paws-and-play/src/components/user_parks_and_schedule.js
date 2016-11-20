@@ -18,8 +18,9 @@ class userParksAndSchedule extends React.Component {
   render() {
     return (
       <div>
+        <h4>Enter your zipcode:</h4>
         <input type="text"  ref="zip" placeholder="zip code"/>
-        <button className="btn btn-sm btn-default dark-button" onClick={this.find_parks}>Find Parks</button>
+        <button className="btn btn-sm btn-default" onClick={this.find_parks}>Find Parks</button>
         <div id="map">
           { this.props.parks.length >0 ?
             <div>
