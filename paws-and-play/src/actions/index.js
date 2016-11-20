@@ -6,6 +6,7 @@ const db = firebase.database().ref('users')
 //USER ACTIONS
 export function addUser(newUserFromForm) {
   debugger
+  return {type: 'ADD_USER', payload: newUserFromForm}
 }
 
 

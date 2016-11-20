@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import firebase from '../components/firebase_config'
 
-const db = firebase.database().ref('users')
+const db = firebase.database().ref()
 
 
 class SignUp extends React.Component {
@@ -12,9 +12,13 @@ class SignUp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSubmit = this.onSubmit.bind(this)
+		this.firebaseListener = this.firebaseListener.bind(this)
+		this.firebaseListener()
+	}
 
-		db.on("value", function(snapshot){
-			debugger
+	firebaseListener(){
+		db.on("child_added", snapshot => {
+		this.props.actions.addUser(snapshot.val())
 		})
 	}
 
@@ -48,9 +52,7 @@ class SignUp extends React.Component {
 			  }
 			}
 			db.push(newUserFromForm)
-
 		}
-
 
 	render() {
 		return(
