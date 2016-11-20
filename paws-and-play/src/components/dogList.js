@@ -13,8 +13,7 @@ export default class DogList extends React.Component {
   render() {
     return (
       <div>
-        <ProfilePane/>
-        <div className = "col-xs-12 col-sm-8 col-sm-offset-6">
+        <div>
           <DogFilter/>
           <DogView name='Ali' breed='Mutt' age='57' size='Small' temperament='Angry' description='She has lots of hair but is still always cold' photoUrl='https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Dog-bite-prevention.jpg?itok=3N2KTNkP'/>
           <br/>
